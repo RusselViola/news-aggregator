@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Article</title>
+    <link rel='stylesheet' href='/home.css'>
+  </head>
+
+  <body>
+    <h1>Articles:</h1>
+    <ul>
+      <% CSV.foreach('articles.csv', headers:true) do |row| %>
+        <li><%=row[1]%> (<a href='http://<%=row[0]%>'><%=row[0]%></a>)
+        <p>Description: <%=row[2]%></p></li>
+      <%end%>
+    </ul>
+    <h3><a href="/articles/new"> Add an article!</a>
+  </body>
+</html>

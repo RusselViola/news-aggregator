@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teams Page</title>
+    <link rel='stylesheet' href='/home.css'>
+  </head>
+
+  <body>
+    #add to error array on server side, then interate through error array to print none, one, or all of them here
+    <h1>Post an Article!</h1>
+    <% if @error %>
+      <h3> Error! Put in values for all three!</h3>
+    <% end %>
+    <% if @input_error %>
+      <h3> Error! That website does not exist!</h3>
+      <% end %>
+    <% if @char_error %>
+      <h3> Error! Description must be 20 characters or more!</h3>
+      <% end  %>
+    <form action='/articles/new' method='post'>
+      <label for='article_url'>URL for Article</label>
+      <input type='text' id='article_url' name='article_url' value='<%=@url%>'>
+
+      <label for='article_title'>Article Title</label>
+      <input type='text' id='article_title' name='article_title' value='<%=@title%>'>
+
+      <label for='article_description'>Description</label>
+      <input type='text' id='article_description' name='article_description' value='<%=@description%>'>
+      <input type='submit'>
+    </form>
+  </body>
+</html>
